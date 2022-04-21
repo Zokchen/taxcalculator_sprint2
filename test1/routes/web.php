@@ -34,4 +34,4 @@ Route::get('/personal.php', [datacontroller::class, 'showform']);
 Route::post('/', [datacontroller::class, 'signup']); //duitai option ma post garna milos bhanera
 Route::post('/personal.php', [datacontroller::class, 'signup']);
 
-Route::view('olddata','olddata')->msalary(90000);
+//Route::view('olddata','olddata')->msalary(90000);
