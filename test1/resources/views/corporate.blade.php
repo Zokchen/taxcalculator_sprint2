@@ -14,7 +14,6 @@
         window.location.assign(`${value}`);
     }
 </script>
-<script src="calculationc.js"></script>
 
 <body>
     <div class="wrapper"></div>
@@ -43,35 +42,45 @@
 
         </div>
         <div>
-
+            <form action="" method="post">
+                @csrf
+                {{-- @foreach ($value1 as $values) 
+                {{$values->ROLY}}
+                {{$values->ROTY}}
+                {{$values->NPOTY}}
+                {{$values->totaltax}}
+                @endforeach --}}
 
             <!-- corporate tax calculation-->
             <div class="corporate">
                 <h3><u>Corporate</u></h3>
                 <!-- Business type -->
                 <div class="business">
-                    <label id="business"> Business Type </label>
-                    <select id="type">
+                    <label id="business" > Business Type </label>
+                    <select id="type" name="businesstype">
                 <option value="1">Normal Business</option>
                 <option value="2">General Insurance (Non-Life Insurance)</option>
                 <option value="3">Telecom and Internet Services</option>
                 <option value="4">Money transfer</option>
             </select>
                 </div>
+
                 <!-- Revenue of last year -->
                 <div class="last_year">
-                    <label id="last_year"> Revenue of Last year </label>
-                    <input type="text" id="last" maxlength="10">
+                    <label id="last_year" name="R.O.L.Y"> Revenue of Last year </label>
+                    <input type="text" id="last" value="" >
                 </div>
+
                 <!-- Revenue of the year -->
                 <div class="the_year">
-                    <label id="the_annual"> Revenue of the year </label>
-                    <input type="text" id="the_year" maxlength="10">
+                    <label id="the_annual" name="R.O.T.Y"> Revenue of the year </label>
+                    <input type="text" id="the_year" value="" >
                 </div>
+
                 <!-- Net profit of the year -->
                 <div class="Net_profit">
-                    <label id="Net_profit"> Net Profit of the year </label>
-                    <input type="text" id="profit" maxlength="10">
+                    <label id="Net_profit" name="N.P.O.T.Y"> Net Profit of the year </label>
+                    <input type="text" id="profit" value="" s>
                 </div>
                 <!-- Tax of the year -->
                 <div class="Tax_year">
@@ -79,7 +88,7 @@
                 </div>
 
             </div>
-
+            
             <!-- Personal tax calculation-->
             <div class="Information">
                 <h3><u>General Information</u></h3>
@@ -89,13 +98,13 @@
                 </p>
             </div>
         </div>
-
+        
         <div class="button">
-            <button type="button" id="Calculate" onclick="calculate_tax()">Calculate</button>
+            <button type="submit" id="Calculate" >Calculate</button>
         </div>
 
         </div>
-
+    </form>
 
 
 

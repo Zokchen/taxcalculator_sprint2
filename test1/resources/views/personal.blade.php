@@ -56,33 +56,73 @@
                 <option value="2">Married</option>
             </select> 
             </label>
-            
+
+            {{-- @foreach ($value as $values) 
+            {{$values->nom}}
+            {{$values->msalary}}
+            {{$values->bonus}}
+            {{$values->totaltax}}
+            @endforeach --}}
+        
                 <!-- Monthly Salary -->
                 <div class="monthly">
                     <label id="salary">Monthly Salary</label>
-                    <input type="text" name= "msalary" id="monthly" maxlength="8">
+                    <input type="text" name= "msalary" value=""  id="monthly" maxlength="15">
+
+                    @if ($errors -> any())
+                    <ul>
+                        @foreach ($errors->get('msalary') as $message)
+                            {{$message}} 
+                        @endforeach
+                    </ul>
+                    @endif
+
                 </div>
+
+
                 <!-- No. of months -->
                 <div class="month">
                     <label id="no_of_months"> No. of Months </label>
-                    <input type="text" name = "nom" id="month" maxlength="2">
+                    <input type="text" name = "nom" value="" id="month" maxlength="2">
+
+                    @if ($errors -> any())
+                    <ul>
+                        @foreach ($errors->get('nom') as $message)
+                            {{$message}} 
+                        @endforeach
+                    </ul>
+                    @endif
+
                 </div>
+
+
                 <!-- Bonus -->
                 <div class="bonus">
                     <label id="B"> Bonus </label>
-                    <input type="text" name="bonus" id="bonus" maxlength="8">
+                    <input type="text" name="bonus" value=""  id="bonus" maxlength="5">
+
+                    @if ($errors -> any())
+                <ul>
+                    @foreach ($errors->get('bonus') as $message)
+                        {{$message}}
+                    @endforeach
+                </ul>
+                @endif
 
                 </div>
+
+                
                 <!-- Total tax of the year -->
                 <div class="total">
                     <label id="T"> Total tax: <span id="total-tax"></span> </label>
 
                 </div>
+                
             </div>
         </div>
          <!-- for calculate button -->
          <div class=" button ">
-            <button type="submit" id="Calculate" onclick="calculate_tax() ">Calculate</button>
+            <button type="submit" id="Calculate" onclick="">Calculate</button>
         </div>
     </form>
 
